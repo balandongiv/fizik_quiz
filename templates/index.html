@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="intro">
+  <h2>{{ config.title }}</h2>
+  {% if config.ui.length_minutes %}
+    <p class="meta">Estimated time: {{ config.ui.length_minutes }} minutes</p>
+  {% endif %}
+  <p class="lead">Assess how your interests and strengths align with industrial and applied physics work.</p>
+  <a class="btn" href="{{ url_for('quiz_view') }}">Start the quiz</a>
+</section>
+{% endblock %}

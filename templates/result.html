@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="result">
+  <h2>Your Industrial Physics fit</h2>
+  <div class="result-summary">
+    <div class="fit-label">{{ label }}</div>
+    <div class="fit-score">{{ fit_score }} / 20</div>
+    <p class="overall">{{ feedback.overall_text }}</p>
+    {% if feedback.top_traits %}
+      <p class="top-traits"><strong>Top strengths:</strong> {{ feedback.top_traits | join(', ') }}</p>
+    {% endif %}
+  </div>
+
+  <div class="trait-bars">
+    {% for trait in traits %}
+      <div class="trait">
+        <div class="trait-header">
+          <span class="trait-name">{{ trait.name }}</span>
+          <span class="trait-score">{{ '%.1f'|format(trait.score) }}</span>
+        </div>
+        <div class="bar">
+          <div class="fill" style="width: {{ (trait.normalized * 100)|round(1) }}%"></div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <section class="feedback">
+    <h3>Highlights</h3>
+    <ul>
+      {% for snippet in feedback.trait_snippets %}
+        <li>{{ snippet }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section class="next-steps">
+    <h3>Next steps to explore</h3>
+    <ol>
+      {% for step in feedback.next_steps %}
+        <li>{{ step }}</li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <a class="btn" href="{{ url_for('quiz_view') }}">Retake the quiz</a>
+</section>
+{% endblock %}

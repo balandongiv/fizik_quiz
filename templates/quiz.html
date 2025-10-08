@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% import '_components.html' as components %}
+
+{% block content %}
+<section class="quiz">
+  <h2>{{ config.title }}</h2>
+  <form method="post">
+    {% if config.ui.progress_bar %}
+      <div class="progress" data-total="{{ progress.total_questions }}">
+        <div class="progress-track">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-label">Question 1 of {{ progress.total_questions }}</div>
+      </div>
+    {% endif %}
+
+    {% for question in questions %}
+      {% set selected = None %}
+      {% if previous_answers %}
+        {% set selected = previous_answers.get(question.id) %}
+      {% endif %}
+      {% if question.type in ['single_choice', 'forced_choice'] %}
+        {{ components.choice_question(question, selected|string if selected is not none else none) }}
+      {% elif question.type == 'likert' %}
+        {{ components.likert_question(question, selected|int if selected is not none else none) }}
+      {% endif %}
+    {% endfor %}
+
+    <button type="submit" class="btn submit">See my results</button>
+  </form>
+</section>
+{% endblock %}

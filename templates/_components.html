@@ -1,0 +1,36 @@
+{% macro choice_question(q, selected) %}
+<div class="question" id="{{ q.id }}">
+  <h3>{{ q.text }}</h3>
+  <div class="options">
+    {% for option in q.options %}
+      <label class="option">
+        <input type="radio" name="{{ q.id }}" value="{{ option.key }}" required {% if selected == option.key %}checked{% endif %}>
+        <span>{{ option.label }}</span>
+      </label>
+    {% endfor %}
+  </div>
+</div>
+{% endmacro %}
+
+{% macro likert_question(q, selected) %}
+<div class="question likert" id="{{ q.id }}">
+  <h3>{{ q.text }}</h3>
+  <div class="likert-scale">
+    {% for point in q.scale %}
+      <label class="likert-point">
+        <input type="radio" name="{{ q.id }}" value="{{ point }}" required {% if selected == point %}checked{% endif %}>
+        <div class="point-value">{{ point }}</div>
+        <div class="point-label">
+          {% if q.labels[point|string] is defined %}
+            {{ q.labels[point|string] }}
+          {% elif point == q.scale[0] and q.labels[q.scale[0]|string] is defined %}
+            {{ q.labels[q.scale[0]|string] }}
+          {% elif point == q.scale[-1] and q.labels[q.scale[-1]|string] is defined %}
+            {{ q.labels[q.scale[-1]|string] }}
+          {% endif %}
+        </div>
+      </label>
+    {% endfor %}
+  </div>
+</div>
+{% endmacro %}
