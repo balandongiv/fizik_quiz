@@ -1,0 +1,204 @@
+{
+  "quiz_id": "applied-physics-readiness-v1",
+  "title": "Applied Physicist Self-Assessment",
+  "traits": [
+    {"code": "CU", "name": "Inherent Curiosity"},
+    {"code": "TI", "name": "Love for Tinkering"},
+    {"code": "AN", "name": "Analytical Mindset"},
+    {"code": "PR", "name": "Practical Problem-Solving"}
+  ],
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "single_choice",
+      "text": "When your phone charges wirelessly, what do you wonder about first?",
+      "options": [
+        {"key": "A", "label": "If it’s fully charged yet", "weights": {"CU": 0, "TI": 0, "AN": 0, "PR": 0}},
+        {"key": "B", "label": "How energy transfers without wires", "weights": {"CU": 2, "AN": 2}}
+      ],
+      "tags": ["curiosity", "phenomena"]
+    },
+    {
+      "id": "Q2",
+      "type": "likert",
+      "scale": [1,2,3,4,5],
+      "labels": {"1": "Strongly disagree", "5": "Strongly agree"},
+      "text": "I enjoy taking things apart to see how they work (and trying to reassemble them).",
+      "weights_per_point": {"TI": 0.6, "CU": 0.2},
+      "tags": ["tinkering"]
+    },
+    {
+      "id": "Q3",
+      "type": "single_choice",
+      "text": "Given a messy dataset from a sensor, what’s your instinct?",
+      "options": [
+        {"key": "A", "label": "Look for a quick visual trend and move on", "weights": {"AN": 1, "PR": 1}},
+        {"key": "B", "label": "Model sources of noise and test filters", "weights": {"AN": 2, "TI": 1}}
+      ],
+      "tags": ["analysis", "signal-processing"]
+    },
+    {
+      "id": "Q4",
+      "type": "likert",
+      "scale": [1,2,3,4,5],
+      "labels": {"1": "Never", "5": "Very often"},
+      "text": "I build or fix things (electronics, bikes, PCs, 3D prints, small mechanisms).",
+      "weights_per_point": {"TI": 0.7, "PR": 0.2},
+      "tags": ["hands-on"]
+    },
+    {
+      "id": "Q5",
+      "type": "single_choice",
+      "text": "Two materials are proposed for a new machine part. What do you do?",
+      "options": [
+        {"key": "A", "label": "Choose what’s available and get started", "weights": {"PR": 1}},
+        {"key": "B", "label": "Compare stress-strain data, cost, and environment of use", "weights": {"AN": 2, "PR": 2}}
+      ],
+      "tags": ["materials", "tradeoffs"]
+    },
+    {
+      "id": "Q6",
+      "type": "forced_choice",
+      "text": "Pick the more appealing task.",
+      "options": [
+        {"key": "A", "label": "Derive the key equations behind a device", "weights": {"AN": 2, "CU": 1}},
+        {"key": "B", "label": "Build a prototype and test it", "weights": {"TI": 2, "PR": 1}}
+      ],
+      "tags": ["preference"]
+    },
+    {
+      "id": "Q7",
+      "type": "likert",
+      "scale": [1,2,3,4,5],
+      "labels": {"1": "Strongly disagree", "5": "Strongly agree"},
+      "text": "I often ask ‘what if we tried it this other way?’ when solving problems.",
+      "weights_per_point": {"CU": 0.5, "PR": 0.3},
+      "tags": ["creativity", "iteration"]
+    },
+    {
+      "id": "Q8",
+      "type": "single_choice",
+      "text": "A production line has a bottleneck. Your first move?",
+      "options": [
+        {"key": "A", "label": "Map the process and collect timing data", "weights": {"AN": 2, "PR": 1}},
+        {"key": "B", "label": "Try a quick hardware tweak to see if it helps", "weights": {"TI": 2, "PR": 1}}
+      ],
+      "tags": ["industry", "optimization"]
+    },
+    {
+      "id": "Q9",
+      "type": "likert",
+      "scale": [1,2,3,4,5],
+      "labels": {"1": "Strongly disagree", "5": "Strongly agree"},
+      "text": "Translating theory into something that works in the real world is energizing.",
+      "weights_per_point": {"PR": 0.7, "AN": 0.3},
+      "tags": ["application"]
+    },
+    {
+      "id": "Q10",
+      "type": "single_choice",
+      "text": "Faced with a tricky measurement, you prefer to:",
+      "options": [
+        {"key": "A", "label": "Buy a better instrument", "weights": {"PR": 1}},
+        {"key": "B", "label": "Calibrate and characterize the current setup first", "weights": {"AN": 2, "TI": 1}}
+      ],
+      "tags": ["metrology"]
+    },
+    {
+      "id": "Q11",
+      "type": "forced_choice",
+      "text": "Which sounds more fun?",
+      "options": [
+        {"key": "A", "label": "Simulate heat flow and compare to experiment", "weights": {"AN": 2, "CU": 1}},
+        {"key": "B", "label": "Design a heat sink and machine it", "weights": {"TI": 2, "PR": 1}}
+      ],
+      "tags": ["thermal"]
+    },
+    {
+      "id": "Q12",
+      "type": "likert",
+      "scale": [1,2,3,4,5],
+      "labels": {"1": "Strongly disagree", "5": "Strongly agree"},
+      "text": "I like optimizing for cost, manufacturability, and safety — not just performance.",
+      "weights_per_point": {"PR": 0.8, "AN": 0.2},
+      "tags": ["constraints"]
+    },
+    {
+      "id": "Q13",
+      "type": "single_choice",
+      "text": "When a device fails intermittently, you:",
+      "options": [
+        {"key": "A", "label": "Swap parts until it works", "weights": {"TI": 1, "PR": 1}},
+        {"key": "B", "label": "Create a fault tree and isolate variables methodically", "weights": {"AN": 2, "PR": 1}}
+      ],
+      "tags": ["debugging"]
+    },
+    {
+      "id": "Q14",
+      "type": "likert",
+      "scale": [1,2,3,4,5],
+      "labels": {"1": "Strongly disagree", "5": "Strongly agree"},
+      "text": "I follow science/engineering channels, and I’m drawn to ‘how it works’ content.",
+      "weights_per_point": {"CU": 0.6, "AN": 0.2},
+      "tags": ["curiosity", "media"]
+    },
+    {
+      "id": "Q15",
+      "type": "single_choice",
+      "text": "Team role you naturally take:",
+      "options": [
+        {"key": "A", "label": "Hands-on builder / tester", "weights": {"TI": 2, "PR": 1}},
+        {"key": "B", "label": "Modeler / analyst", "weights": {"AN": 2, "CU": 1}}
+      ],
+      "tags": ["teamwork"]
+    },
+    {
+      "id": "Q16",
+      "type": "likert",
+      "scale": [1,2,3,4,5],
+      "labels": {"1": "Strongly disagree", "5": "Strongly agree"},
+      "text": "I enjoy connecting physics principles to industries like energy, semiconductors, automation, or medical devices.",
+      "weights_per_point": {"PR": 0.6, "CU": 0.4},
+      "tags": ["industry", "motivation"]
+    }
+  ],
+  "scoring": {
+    "trait_caps": {"CU": 20, "TI": 20, "AN": 20, "PR": 20},
+    "industrial_fit_weights": {"CU": 0.25, "TI": 0.25, "AN": 0.25, "PR": 0.25},
+    "thresholds": [
+      {"label": "Strong Fit for Industrial Physics", "min_score": 14},
+      {"label": "Potential Fit — Explore Further", "min_score": 10},
+      {"label": "Explore Other Paths", "min_score": 0}
+    ],
+    "normalization": "sum_weighted_traits / 20 (max) * 20"
+  },
+  "feedback_templates": {
+    "overall": {
+      "strong": "You strongly align with Industrial/Applied Physics. Your blend of {{TOP_TRAITS}} suggests you’ll enjoy design-build-test cycles and translating theory into practice.",
+      "potential": "You show signs of a good match. With exposure to labs or projects, your {{TOP_TRAITS}} can grow into a strong applied profile.",
+      "explore": "You have strengths in {{TOP_TRAITS}}, but your profile may align better with other paths. Consider shadowing a lab or short build projects to sample applied work."
+    },
+    "trait_snippets": {
+      "CU": "You’re energized by understanding how things work.",
+      "TI": "You like building, fixing, and prototyping.",
+      "AN": "You approach problems systematically and with data.",
+      "PR": "You focus on real-world constraints and usefulness."
+    },
+    "next_steps": [
+      "Try a weekend teardown/repair or a small Arduino/Raspberry Pi build.",
+      "Shadow a local manufacturing, energy, or instrumentation lab.",
+      "Join a university makerspace; complete one build-measure-optimize loop.",
+      "Take an intro course in measurement & instrumentation or materials."
+    ]
+  },
+  "ui": {
+    "length_minutes": 4,
+    "progress_bar": true,
+    "shuffle_within_types": true,
+    "skip_logic": [
+      {"if": {"Q4": {"lte": 2}}, "then": {"deprioritize": ["Q6","Q11"]}},
+      {"if": {"Q14": {"lte": 2}}, "then": {"show_tip": "You can still thrive here — exposure builds curiosity!"}}
+    ],
+    "result_visuals": ["trait-radar", "bar-four-traits"]
+  }
+}
