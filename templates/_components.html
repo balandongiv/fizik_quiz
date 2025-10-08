@@ -1,0 +1,40 @@
+{% macro choice_question(q, selected) %}
+<div class="question" id="{{ q.id }}">
+  <h3>{{ q.text }}</h3>
+  <div class="options">
+    {% for option in q.options %}
+      <label class="option">
+        <input type="radio" name="{{ q.id }}" value="{{ option.key }}" required {% if selected == option.key %}checked{% endif %}>
+        <span>{{ option.label }}</span>
+      </label>
+    {% endfor %}
+  </div>
+</div>
+{% endmacro %}
+
+{% macro likert_question(q, selected) %}
+<div class="question likert" id="{{ q.id }}">
+  <h3>{{ q.text }}</h3>
+  <div class="likert-scale">
+    {% for point in q.scale %}
+      <label class="likert-point">
+        <input type="radio" name="{{ q.id }}" value="{{ point }}" required {% if selected == point %}checked{% endif %}>
+        <div class="point-value">{{ point }}</div>
+        <div class="point-label">
+          {% set labels = q.labels %}
+          {% set point_key = point ~ '' %}
+          {% set first_key = q.scale[0] ~ '' %}
+          {% set last_key = q.scale[-1] ~ '' %}
+          {% if labels.get(point_key) is not none %}
+            {{ labels.get(point_key) }}
+          {% elif point == q.scale[0] and labels.get(first_key) is not none %}
+            {{ labels.get(first_key) }}
+          {% elif point == q.scale[-1] and labels.get(last_key) is not none %}
+            {{ labels.get(last_key) }}
+          {% endif %}
+        </div>
+      </label>
+    {% endfor %}
+  </div>
+</div>
+{% endmacro %}
