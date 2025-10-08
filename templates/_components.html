@@ -21,12 +21,16 @@
         <input type="radio" name="{{ q.id }}" value="{{ point }}" required {% if selected == point %}checked{% endif %}>
         <div class="point-value">{{ point }}</div>
         <div class="point-label">
-          {% if q.labels[point|string] is defined %}
-            {{ q.labels[point|string] }}
-          {% elif point == q.scale[0] and q.labels[q.scale[0]|string] is defined %}
-            {{ q.labels[q.scale[0]|string] }}
-          {% elif point == q.scale[-1] and q.labels[q.scale[-1]|string] is defined %}
-            {{ q.labels[q.scale[-1]|string] }}
+          {% set labels = q.labels %}
+          {% set point_key = point ~ '' %}
+          {% set first_key = q.scale[0] ~ '' %}
+          {% set last_key = q.scale[-1] ~ '' %}
+          {% if labels.get(point_key) is not none %}
+            {{ labels.get(point_key) }}
+          {% elif point == q.scale[0] and labels.get(first_key) is not none %}
+            {{ labels.get(first_key) }}
+          {% elif point == q.scale[-1] and labels.get(last_key) is not none %}
+            {{ labels.get(last_key) }}
           {% endif %}
         </div>
       </label>

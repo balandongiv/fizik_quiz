@@ -20,7 +20,7 @@
         {% set selected = previous_answers.get(question.id) %}
       {% endif %}
       {% if question.type in ['single_choice', 'forced_choice'] %}
-        {{ components.choice_question(question, selected|string if selected is not none else none) }}
+        {{ components.choice_question(question, selected if selected is not none else none) }}
       {% elif question.type == 'likert' %}
         {{ components.likert_question(question, selected|int if selected is not none else none) }}
       {% endif %}
